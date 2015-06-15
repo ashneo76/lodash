@@ -39,7 +39,7 @@ import toIterable from '../internal/toIterable';
  */
 function sum(collection, iteratee, thisArg) {
   if (thisArg && isIterateeCall(collection, iteratee, thisArg)) {
-    iteratee = null;
+    iteratee = undefined;
   }
   var noIteratee = iteratee == null;
 

@@ -1,6 +1,7 @@
 import baseDifference from '../internal/baseDifference';
 import baseFlatten from '../internal/baseFlatten';
 import isArrayLike from '../internal/isArrayLike';
+import isObjectLike from '../internal/isObjectLike';
 import restParam from '../function/restParam';
 
 /**
@@ -20,7 +21,7 @@ import restParam from '../function/restParam';
  * // => [1, 3]
  */
 var difference = restParam(function(array, values) {
-  return isArrayLike(array)
+  return (isObjectLike(array) && isArrayLike(array))
     ? baseDifference(array, baseFlatten(values, false, true))
     : [];
 });
