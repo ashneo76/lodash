@@ -39,7 +39,7 @@ var arraySum = require('../internal/arraySum'),
  */
 function sum(collection, iteratee, thisArg) {
   if (thisArg && isIterateeCall(collection, iteratee, thisArg)) {
-    iteratee = null;
+    iteratee = undefined;
   }
   var noIteratee = iteratee == null;
 

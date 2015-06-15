@@ -117,7 +117,7 @@ function debounce(func, wait, options) {
         lastCalled = now();
         result = func.apply(thisArg, args);
         if (!timeoutId && !maxTimeoutId) {
-          args = thisArg = null;
+          args = thisArg = undefined;
         }
       }
     } else {
@@ -134,7 +134,7 @@ function debounce(func, wait, options) {
       lastCalled = now();
       result = func.apply(thisArg, args);
       if (!timeoutId && !maxTimeoutId) {
-        args = thisArg = null;
+        args = thisArg = undefined;
       }
     }
   }
@@ -176,7 +176,7 @@ function debounce(func, wait, options) {
       result = func.apply(thisArg, args);
     }
     if (isCalled && !timeoutId && !maxTimeoutId) {
-      args = thisArg = null;
+      args = thisArg = undefined;
     }
     return result;
   }

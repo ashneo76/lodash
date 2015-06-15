@@ -1,4 +1,4 @@
-var isObjectLike = require('../internal/isObjectLike');
+var isObject = require('./isObject');
 
 /** `Object#toString` result references. */
 var regexpTag = '[object RegExp]';
@@ -29,7 +29,7 @@ var objToString = objectProto.toString;
  * // => false
  */
 function isRegExp(value) {
-  return isObjectLike(value) && objToString.call(value) == regexpTag;
+  return isObject(value) && objToString.call(value) == regexpTag;
 }
 
 module.exports = isRegExp;
