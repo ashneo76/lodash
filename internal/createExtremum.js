@@ -1,5 +1,8 @@
 define(['./arrayExtremum', './baseCallback', './baseExtremum', './isIterateeCall', './toIterable'], function(arrayExtremum, baseCallback, baseExtremum, isIterateeCall, toIterable) {
 
+  /** Used as a safe reference for `undefined` in pre-ES5 environments. */
+  var undefined;
+
   /**
    * Creates a `_.max` or `_.min` function.
    *
@@ -11,7 +14,7 @@ define(['./arrayExtremum', './baseCallback', './baseExtremum', './isIterateeCall
   function createExtremum(comparator, exValue) {
     return function(collection, iteratee, thisArg) {
       if (thisArg && isIterateeCall(collection, iteratee, thisArg)) {
-        iteratee = null;
+        iteratee = undefined;
       }
       iteratee = baseCallback(iteratee, thisArg, 3);
       if (iteratee.length == 1) {

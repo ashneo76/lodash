@@ -1,5 +1,8 @@
 define(['../internal/baseCallback', '../internal/baseUniq', '../internal/isIterateeCall', '../internal/sortedUniq'], function(baseCallback, baseUniq, isIterateeCall, sortedUniq) {
 
+  /** Used as a safe reference for `undefined` in pre-ES5 environments. */
+  var undefined;
+
   /**
    * Creates a duplicate-free version of an array, using
    * [`SameValueZero`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-samevaluezero)
@@ -56,7 +59,7 @@ define(['../internal/baseCallback', '../internal/baseUniq', '../internal/isItera
     }
     if (isSorted != null && typeof isSorted != 'boolean') {
       thisArg = iteratee;
-      iteratee = isIterateeCall(array, isSorted, thisArg) ? null : isSorted;
+      iteratee = isIterateeCall(array, isSorted, thisArg) ? undefined : isSorted;
       isSorted = false;
     }
     iteratee = iteratee == null ? iteratee : baseCallback(iteratee, thisArg, 3);

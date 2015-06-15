@@ -1,4 +1,4 @@
-define(['../internal/baseDifference', '../internal/baseFlatten', '../internal/isArrayLike', '../function/restParam'], function(baseDifference, baseFlatten, isArrayLike, restParam) {
+define(['../internal/baseDifference', '../internal/baseFlatten', '../internal/isArrayLike', '../internal/isObjectLike', '../function/restParam'], function(baseDifference, baseFlatten, isArrayLike, isObjectLike, restParam) {
 
   /**
    * Creates an array of unique `array` values not included in the other
@@ -17,7 +17,7 @@ define(['../internal/baseDifference', '../internal/baseFlatten', '../internal/is
    * // => [1, 3]
    */
   var difference = restParam(function(array, values) {
-    return isArrayLike(array)
+    return (isObjectLike(array) && isArrayLike(array))
       ? baseDifference(array, baseFlatten(values, false, true))
       : [];
   });

@@ -1,5 +1,8 @@
 define(['../internal/getNative', '../internal/isArrayLike', '../lang/isObject', '../internal/shimKeys'], function(getNative, isArrayLike, isObject, shimKeys) {
 
+  /** Used as a safe reference for `undefined` in pre-ES5 environments. */
+  var undefined;
+
   /* Native method references for those with the same name as other `lodash` methods. */
   var nativeKeys = getNative(Object, 'keys');
 
@@ -31,7 +34,7 @@ define(['../internal/getNative', '../internal/isArrayLike', '../lang/isObject', 
    * // => ['0', '1']
    */
   var keys = !nativeKeys ? shimKeys : function(object) {
-    var Ctor = object == null ? null : object.constructor;
+    var Ctor = object == null ? undefined : object.constructor;
     if ((typeof Ctor == 'function' && Ctor.prototype === object) ||
         (typeof object != 'function' && isArrayLike(object))) {
       return shimKeys(object);

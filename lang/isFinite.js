@@ -1,8 +1,7 @@
-define(['../internal/getNative', '../internal/root'], function(getNative, root) {
+define(['../internal/root'], function(root) {
 
   /* Native method references for those with the same name as other `lodash` methods. */
-  var nativeIsFinite = root.isFinite,
-      nativeNumIsFinite = getNative(Number, 'isFinite');
+  var nativeIsFinite = root.isFinite;
 
   /**
    * Checks if `value` is a finite primitive number.
@@ -31,9 +30,9 @@ define(['../internal/getNative', '../internal/root'], function(getNative, root) 
    * _.isFinite(Infinity);
    * // => false
    */
-  var isFinite = nativeNumIsFinite || function(value) {
+  function isFinite(value) {
     return typeof value == 'number' && nativeIsFinite(value);
-  };
+  }
 
   return isFinite;
 });

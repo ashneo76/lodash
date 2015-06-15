@@ -20,7 +20,7 @@ define(['./arrayEach', './baseMergeDeep', '../lang/isArray', './isArrayLike', '.
       return object;
     }
     var isSrcArr = isArrayLike(source) && (isArray(source) || isTypedArray(source)),
-        props = isSrcArr ? null : keys(source);
+        props = isSrcArr ? undefined : keys(source);
 
     arrayEach(props || source, function(srcValue, key) {
       if (props) {

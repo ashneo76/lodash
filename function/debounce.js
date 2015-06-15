@@ -119,7 +119,7 @@ define(['../lang/isObject', '../date/now'], function(isObject, now) {
           lastCalled = now();
           result = func.apply(thisArg, args);
           if (!timeoutId && !maxTimeoutId) {
-            args = thisArg = null;
+            args = thisArg = undefined;
           }
         }
       } else {
@@ -136,7 +136,7 @@ define(['../lang/isObject', '../date/now'], function(isObject, now) {
         lastCalled = now();
         result = func.apply(thisArg, args);
         if (!timeoutId && !maxTimeoutId) {
-          args = thisArg = null;
+          args = thisArg = undefined;
         }
       }
     }
@@ -178,7 +178,7 @@ define(['../lang/isObject', '../date/now'], function(isObject, now) {
         result = func.apply(thisArg, args);
       }
       if (isCalled && !timeoutId && !maxTimeoutId) {
-        args = thisArg = null;
+        args = thisArg = undefined;
       }
       return result;
     }

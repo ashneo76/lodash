@@ -119,7 +119,7 @@ define(['../internal/assignOwnDefaults', '../internal/assignWith', '../utility/a
     var settings = templateSettings.imports._.templateSettings || templateSettings;
 
     if (otherOptions && isIterateeCall(string, options, otherOptions)) {
-      options = otherOptions = null;
+      options = otherOptions = undefined;
     }
     string = baseToString(string);
     options = assignWith(baseAssign({}, otherOptions || options), settings, assignOwnDefaults);

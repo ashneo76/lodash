@@ -1,4 +1,4 @@
-define(['../internal/isObjectLike'], function(isObjectLike) {
+define(['./isObject'], function(isObject) {
 
   /** `Object#toString` result references. */
   var regexpTag = '[object RegExp]';
@@ -29,7 +29,7 @@ define(['../internal/isObjectLike'], function(isObjectLike) {
    * // => false
    */
   function isRegExp(value) {
-    return isObjectLike(value) && objToString.call(value) == regexpTag;
+    return isObject(value) && objToString.call(value) == regexpTag;
   }
 
   return isRegExp;
